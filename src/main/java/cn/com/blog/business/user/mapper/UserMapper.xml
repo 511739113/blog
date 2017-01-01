@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.blog.business.user.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.blog.business.user.pojo.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="INTEGER" />
+    <result column="blog_name" property="blogName" jdbcType="VARCHAR" />
+    <result column="blog_domin" property="blogDomin" jdbcType="VARCHAR" />
+    <result column="blog_pah" property="blogPah" jdbcType="VARCHAR" />
+    <result column="blog_tpl_path" property="blogTplPath" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_name, password, age, email, phone, blog_name, blog_domin, blog_pah, blog_tpl_path
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from b_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.com.blog.business.user.pojo.User" >
+    insert into b_user (id, user_name, password, 
+      age, email, phone, 
+      blog_name, blog_domin, blog_pah, 
+      blog_tpl_path)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=INTEGER}, 
+      #{blogName,jdbcType=VARCHAR}, #{blogDomin,jdbcType=VARCHAR}, #{blogPah,jdbcType=VARCHAR}, 
+      #{blogTplPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.blog.business.user.pojo.User" >
+    insert into b_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="blogName != null" >
+        blog_name,
+      </if>
+      <if test="blogDomin != null" >
+        blog_domin,
+      </if>
+      <if test="blogPah != null" >
+        blog_pah,
+      </if>
+      <if test="blogTplPath != null" >
+        blog_tpl_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="blogName != null" >
+        #{blogName,jdbcType=VARCHAR},
+      </if>
+      <if test="blogDomin != null" >
+        #{blogDomin,jdbcType=VARCHAR},
+      </if>
+      <if test="blogPah != null" >
+        #{blogPah,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTplPath != null" >
+        #{blogTplPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.blog.business.user.pojo.User" >
+    update b_user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="blogName != null" >
+        blog_name = #{blogName,jdbcType=VARCHAR},
+      </if>
+      <if test="blogDomin != null" >
+        blog_domin = #{blogDomin,jdbcType=VARCHAR},
+      </if>
+      <if test="blogPah != null" >
+        blog_pah = #{blogPah,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTplPath != null" >
+        blog_tpl_path = #{blogTplPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.blog.business.user.pojo.User" >
+    update b_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=INTEGER},
+      blog_name = #{blogName,jdbcType=VARCHAR},
+      blog_domin = #{blogDomin,jdbcType=VARCHAR},
+      blog_pah = #{blogPah,jdbcType=VARCHAR},
+      blog_tpl_path = #{blogTplPath,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
