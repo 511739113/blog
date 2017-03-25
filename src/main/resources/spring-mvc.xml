@@ -18,7 +18,7 @@
     <!-- 定义跳转的文件的前后缀 ，视图模式配置-->  
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
         <property name="prefix" value="/WEB-INF/jsp/" />  
-        <property name="suffix" value=".jsp" />  
+        <property name="suffix" value=".jsp" />
     </bean>
 
     <!-- 允许对静态资源文件的访问 -->
@@ -37,9 +37,8 @@
     		</list>
     	</property>
     </bean>
-      
-
 	
+		
 	<!-- 拦截器配置 -->
 	<bean id="interceptorTest1" class="cn.com.blog.interceptor.InterceptorTest1"></bean>
 	<bean id="interceptorTest2" class="cn.com.blog.interceptor.InterceptorTest2"></bean>
