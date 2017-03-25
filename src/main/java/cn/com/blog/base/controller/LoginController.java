@@ -1,6 +1,10 @@
 package cn.com.blog.base.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 /**
@@ -12,7 +16,15 @@ import org.springframework.stereotype.Controller;
  * @time 2017年1月1日 上午7:03:06
 */
 @Controller
+@RequestMapping("/loginController")
 public class LoginController {
 	
+	@RequestMapping("/testLogin")
+	@ResponseBody
+	public String testLogin(HttpServletRequest request){
+		
+		
+		return "测试 springMVC 配置成功";
+	}
 	
 }
