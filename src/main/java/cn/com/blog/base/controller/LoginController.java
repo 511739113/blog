@@ -19,6 +19,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/loginController")
 public class LoginController {
 	
+	/**
+	 * <p>方法名称：</p>
+	 * <p>方法说明：</p>
+	 * @param request
+	 * @return
+	 * @autho zhangxu
+	 * @time 2017年4月6日 下午10:48:09
+	 */
 	@RequestMapping("/testLogin")
 	@ResponseBody
 	public String testLogin(HttpServletRequest request){
@@ -26,5 +34,7 @@ public class LoginController {
 		
 		return "测试 springMVC 配置成功";
 	}
+	
+	
 	
 }

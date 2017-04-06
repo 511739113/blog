@@ -36,7 +36,7 @@
         -->  
         <property name="filterChainDefinitions">  
             <value>  
-            	/**=authc
+            	/** = anon
                 <!-- /mydemo/login=anon  
                 /mydemo/getVerifyCodeImage=anon  
                 /main**=authc  
